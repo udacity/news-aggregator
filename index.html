@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 
 Copyright 2015 Google Inc. All rights reserved.
 
@@ -18,66 +18,71 @@ limitations under the License.
 <!doctype html>
 <html>
 
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
-  <meta name="theme-color" content="#FF6F00">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#FF6F00">
 
-  <script src="third_party/handlebars-v3.0.0.js"></script>
-  <script>
-  if (typeof window.Intl !== 'undefined') {
-    document.write('<script src="third_party/handlebars-intl.min.js"><\/script>');
-  }
-  </script>
+    <script src="third_party/handlebars-v3.0.0.js"></script>
+    <script src="third_party/jquery-3.1.1.js"></script>
+    <script src="third_party/jquery.visible.js"></script>
+    <script src="third_party/fastdom.js"></script>
+    <script src="third_party/lodash.js"></script>
+    <script>
+        if (typeof window.Intl !== 'undefined') {
+            document.write('<script src="third_party/handlebars-intl.min.js"><\/script>');
+        }
+    </script>
 
-  <script id="tmpl-story" type="text/x-handlebars-template">
-    <h1 class="story__title">{{ title }}</h1>
-    <div class="story__score">{{ score }}</div>
-    <div class="story__by">Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
-    </div>
-  </script>
+    <script id="tmpl-story" type="text/x-handlebars-template">
+        <h1 class="story__title">{{ title }}</h1>
+        <div class="story__score">{{ score }}</div>
+        <div class="story__by">
+            Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
+        </div>
+    </script>
 
-  <script id="tmpl-story-details" type="text/x-handlebars-template">
-    <header class="story-details__header js-header">
-      <h1 class="story-details__title">{{ title }}{{#if url }} <a class="story-details__title-link" href="{{url}}">({{ urlobj.hostname }})</a>{{/if}}</h1>
-      <button class="story-details__close js-close">Close</button>
-      <section class="story-details__meta">
-        Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
-      </section>
-    </header>
+    <script id="tmpl-story-details" type="text/x-handlebars-template">
+        <header class="story-details__header js-header">
+            <h1 class="story-details__title">{{ title }}{{#if url }} <a class="story-details__title-link" href="{{url}}">({{ urlobj.hostname }})</a>{{/if}}</h1>
+            <button class="story-details__close js-close">Close</button>
+            <section class="story-details__meta">
+                Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
+            </section>
+        </header>
 
-    <section class="story-details__content js-content">
-      <div>
-        <a class="story-details__link" href="{{ url }}">Visit site</a>
-      </div>
+        <section class="story-details__content js-content">
+            <div>
+                <a class="story-details__link" href="{{ url }}">Visit site</a>
+            </div>
 
-      {{#if kids}}
-      <section class="story-details__comments js-comments">
-        <h2 class="story-details__comments-title">Comments</h2>
-      </section>
-      {{/if}}
-    </section>
-  </script>
+            {{#if kids}}
+            <section class="story-details__comments js-comments">
+                <h2 class="story-details__comments-title">Comments</h2>
+            </section>
+            {{/if}}
+        </section>
+    </script>
 
-  <script id="tmpl-story-details-comment" type="text/x-handlebars-template">
-    <p class="story-details-comment__author">{{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}</p>
-    <div class="story-details-comment__text">{{{ text }}}</div>
-  </script>
+    <script id="tmpl-story-details-comment" type="text/x-handlebars-template">
+        <p class="story-details-comment__author">{{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}</p>
+        <div class="story-details-comment__text">{{{ text }}}</div>
+    </script>
 
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="styles/app.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/app.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
     <header class="header">
 
-      <div class="header__title-wrapper">
-        <h1 class="header__title">Hacker News</h1>
-        <h2 class="header__subhead">Top Stories</h2>
-      </div>
+        <div class="header__title-wrapper">
+            <h1 class="header__title">Hacker News</h1>
+            <h2 class="header__subhead">Top Stories</h2>
+        </div>
 
     </header>
 
@@ -85,12 +90,12 @@ limitations under the License.
     </main>
 
     <footer>
-      Powered by the <a href="https://github.com/HackerNews/API">Hacker News API</a>
+        Powered by the <a href="https://github.com/HackerNews/API">Hacker News API</a>
     </footer>
 
     <script src="scripts/namespace.js"></script>
     <script src="scripts/data.js"></script>
     <script src="scripts/app.js"></script>
 
-  </body>
+</body>
 </html>
